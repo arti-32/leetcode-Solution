@@ -1,12 +1,12 @@
 class Solution {
     public int splitArray(int[] nums, int k) {
-        if(k==nums.length){
-            int ans=Integer.MIN_VALUE;
-            for(int i:nums){
-                ans = Math.max(ans,i);
-            }
-            return ans;
-        }
+        // if(k==nums.length){
+        //     int ans=Integer.MIN_VALUE;
+        //     for(int i:nums){
+        //         ans = Math.max(ans,i);
+        //     }
+        //     return ans;
+        // }
         long start = Long.MAX_VALUE;
         long end = 0;
         long ans=0;
