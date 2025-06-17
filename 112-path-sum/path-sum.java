@@ -18,20 +18,80 @@ class Solution {
         if(root==null){
             return false;
         }
-        return helper(root,targetSum,0);
+        return helper(root,0,targetSum);
+
+
+
+
+
+
+
+
+
+
+        
+        // if(root==null){
+        //     return false;
+        // }
+        // return helper(root,targetSum,0);
     }
-    public boolean helper(TreeNode root,int targetSum,int sum){
+
+
+
+
+
+
+
+
+
+    public boolean helper(TreeNode root,int curr,int targetSum){
         if(root==null){
             return false;
         }
         if(root.left==null && root.right==null){
-            if((root.val+sum)==targetSum){
+            if((curr+root.val)==targetSum){
                 return true;
             }
             return false;
         }
-        boolean left = helper(root.left,targetSum,sum+root.val);
-        boolean right = helper(root.right,targetSum,sum+root.val);
+        boolean left = helper(root.left,curr+root.val,targetSum);
+        boolean right = helper(root.right,curr+root.val,targetSum);
         return left||right;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // public boolean helper(TreeNode root,int targetSum,int sum){
+    //     if(root==null){
+    //         return false;
+    //     }
+    //     if(root.left==null && root.right==null){
+    //         if((root.val+sum)==targetSum){
+    //             return true;
+    //         }
+    //         return false;
+    //     }
+    //     boolean left = helper(root.left,targetSum,sum+root.val);
+    //     boolean right = helper(root.right,targetSum,sum+root.val);
+    //     return left||right;
+    // }
 }
