@@ -19,16 +19,54 @@ class Solution {
         helper(root,1,list);
         return list;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     int ml = 0;
-    public void helper(TreeNode root,int cl,ArrayList<Integer> list){
+    public void helper(TreeNode root,int l,ArrayList<Integer> list){
         if(root==null){
             return;
         }
-        if(ml<cl){
+        if(ml<l){
             list.add(root.val);
-            ml = cl;
+            ml = l;
         }
-        helper(root.right,cl+1,list);
-        helper(root.left,cl+1,list);
+        helper(root.right,l+1,list);
+        helper(root.left,l+1,list);
     }
+
+
+
+
+
+
+
+
+
+
+
+    // int ml = 0;
+    // public void helper(TreeNode root,int cl,ArrayList<Integer> list){
+    //     if(root==null){
+    //         return;
+    //     }
+    //     if(ml<cl){
+    //         list.add(root.val);
+    //         ml = cl;
+    //     }
+    //     helper(root.right,cl+1,list);
+    //     helper(root.left,cl+1,list);
+    // }
 }
