@@ -25,7 +25,7 @@ class Solution {
             return false;
         }
         boolean flip = flipEquiv(root1.left,root2.right)&&flipEquiv(root1.right,root2.left);
-        boolean noflip = flipEquiv(root1.right,root2.right)&&flipEquiv(root1.left,root2.left);
+        boolean noflip = flipEquiv(root1.left,root2.left)&&flipEquiv(root1.right,root2.right);
         return flip||noflip;
     }
 }
