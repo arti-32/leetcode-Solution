@@ -24,7 +24,6 @@ class Solution {
         if(root.left==null && root.right==null){
             return curr*10+root.val;
         }
-        int v = root.val;
-        return helper(root.left,curr*10+v)+helper(root.right,curr*10+v);
+        return helper(root.left,curr*10+root.val)+helper(root.right,curr*10+root.val);
     }
 }
