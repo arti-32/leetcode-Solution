@@ -20,11 +20,12 @@ class Solution {
             int y = q.peek().y;
             int val = q.peek().ind;
             q.poll();
-            ans[x][y] = val;
+            
             for(int i=0;i<4;i++){
                 int delr = x+drow[i];
                 int delc = y+dcol[i];
                 if(delr>=0 && delr<n && delc>=0 && delc<m && mat[delr][delc]==1 && !visit[delr][delc]){
+                    ans[delr][delc] = val+1;
                     q.add(new Pair(delr,delc,val+1));
                     visit[delr][delc] = true;
                 }
