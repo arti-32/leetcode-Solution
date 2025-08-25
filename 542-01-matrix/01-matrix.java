@@ -2,20 +2,20 @@ class Solution {
     public int[][] updateMatrix(int[][] mat) {
         int n = mat.length;
         int m = mat[0].length;
-        int[] drow = {-1,0,1,0};
-        int[] dcol = {0,1,0,-1};
-        Queue<Pair> q = new LinkedList<>();
         boolean[][] visit = new boolean[n][m];
-
+        Queue<Pair> q = new LinkedList<>();
         int[][] ans = new int[n][m];
+
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
-                if(mat[i][j]==0){
-                    q.add(new Pair(i,j,0));
+                if(mat[i][j] ==0){
                     visit[i][j] = true;
+                    q.add(new Pair(i,j,0));
                 }
             }
         }
+        int[] delr ={-1,0,1,0};
+        int[] delc = {0,1,0,-1};
         while(!q.isEmpty()){
             int x = q.peek().x;
             int y = q.peek().y;
@@ -23,15 +23,14 @@ class Solution {
             q.poll();
 
             for(int i=0;i<4;i++){
-                int delr = x+drow[i];
-                int delc = y+dcol[i];
-                if(delr>=0 && delr<n && delc>=0 && delc<m && !visit[delr][delc] && mat[delr][delc] ==1){
-                    ans[delr][delc] = ind+1;
-                    q.add(new Pair(delr,delc,ind+1));
-                    visit[delr][delc] = true;
+                int drow = x+delr[i];
+                int dcol = y+delc[i];
+                if(drow>=0 && drow<n && dcol>=0 && dcol<m && !visit[drow][dcol] && mat[drow][dcol]==1){
+                    visit[drow][dcol] = true;
+                    ans[drow][dcol] = ind+1;
+                    q.add(new Pair(drow,dcol,ind+1));
                 }
             }
-
         }
         return ans;
     }
