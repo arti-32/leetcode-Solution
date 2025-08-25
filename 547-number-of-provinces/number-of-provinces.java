@@ -1,7 +1,6 @@
 class Solution {
     public int findCircleNum(int[][] isConnected) {
-        int n =isConnected.length;
-        boolean[] visit= new boolean[n];
+        int n = isConnected.length;
         ArrayList<ArrayList<Integer>> list = new ArrayList<>();
         for(int i=0;i<n;i++){
             list.add(new ArrayList<>());
@@ -14,30 +13,22 @@ class Solution {
                 }
             }
         }
-        int ans =0;
+        int count = 0;
+        boolean[] visit = new boolean[n];
         for(int i=0;i<n;i++){
             if(!visit[i]){
-                ans++;
+                count++;
                 dfs(list,visit,i);
             }
         }
-        return ans;
+        return count;
     }
-    private void dfs(ArrayList<ArrayList<Integer>> list,boolean[] visit,int node){
-        visit[node]= true;
+    public void dfs(ArrayList<ArrayList<Integer>> list,boolean[] visit,int node){
+        visit[node] = true;
         for(Integer i:list.get(node)){
             if(!visit[i]){
                 dfs(list,visit,i);
             }
         }
-    }
-}
-class Pair{
-    int x;
-    int y;
-    public Pair(int x,int y){
-        this.x = x;
-        this.y = y;
-
     }
 }
